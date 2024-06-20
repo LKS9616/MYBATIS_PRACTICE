@@ -6,16 +6,16 @@ import java.util.List;
 
 import static com.EmployeeEditor.Template.getSqlSession;
 
-public class ListService {
+public class MemberListService {
 
     private ListMapper listMapper;
 
-    public List<EmployeeDTO> selectAllEmployee() {
+    public List<EmployeeDTO> selectAllMembers() {
         SqlSession sqlSession = getSqlSession();
 
         listMapper = sqlSession.getMapper(ListMapper.class);
 
-        List<EmployeeDTO> empList = listMapper.selectAllEmployee();
+        List<EmployeeDTO> empList = listMapper.selectAllMembers();
 
         sqlSession.close();
 

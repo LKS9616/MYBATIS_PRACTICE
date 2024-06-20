@@ -20,7 +20,7 @@
         <result property="entYn" column="ENT_YN"/>
     </resultMap>
 
-    <select id="selectAllList" resultMap="listResultMap">
+    <select id="selectAllMembers" resultMap="listResultMap">
         select emp_id,
         emp_name,
         emp_no,

@@ -9,7 +9,7 @@ public class Application {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        ListController listController = new ListController();
+        MemberListController memberListController = new MemberListController();
 
         do {
             System.out.println("=============== 직원 관리 시스템 ==================");
@@ -24,17 +24,17 @@ public class Application {
 
             switch(no) {
 
-                case 1: listController.selectAllEmployee();
+                case 1: memberListController.selectAllMembers();
                 break;
-                case 2: listController.selectEmployeeById(inputEmployeeId());
+                case 2: memberListController.selectMemberById(inputMemberId());
                 break;
-                case 3: listController.selectEmployeeByName(inputEmployeeName());
+                case 3: memberListController.selectMemberByName(inputMemberName());
                 break;
-                case 4: listController.addEmployee(inputEmployee());
+                case 4: memberListController.addMember(inputMember());
                 break;
-                case 5: listController.editEmployee(inputEmployeeModify());
+                case 5: memberListController.editMember(inputMemberModify());
                 break;
-                case 6: listController.deleteEmployee(inputEmployeeId());
+                case 6: memberListController.deleteMember(inputMemberId());
                 break;
                 default:
                     System.out.println("잘못된 번호를 선택하셨습니다");
@@ -42,7 +42,7 @@ public class Application {
             }
         } while(true);
     }
-    private static Map<String, String> inputEmployeeId() {
+    private static Map<String, String> inputMemberId() {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("직원의 코드를 입력하세요 : ");
@@ -54,7 +54,7 @@ public class Application {
         return parameter;
     }
 
-    private static Map <String, String> inputEmployeeName() {
+    private static Map <String, String> inputMemberName() {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("직원의 이름을 입력하세요 : ");
@@ -66,7 +66,7 @@ public class Application {
         return parameter;
     }
 
-    private static Map <String, String> inputEmployee () {
+    private static Map <String, String> inputMember () {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("직원의 사원번호를 입력하세요 : ");
@@ -116,7 +116,7 @@ public class Application {
 
         return parameter;
     }
-    private static Map <String, String> inputEmployeeModify () {
+    private static Map <String, String> inputMemberModify () {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("직원의 사원번호를 입력하세요 : ");

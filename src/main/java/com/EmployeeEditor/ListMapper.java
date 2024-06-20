@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ListMapper {
     
-    List<EmployeeDTO> selectAllEmployee();
+    List<EmployeeDTO> selectAllMembers();
 
     EmployeeDTO selectEmployeeById(String empId);
 

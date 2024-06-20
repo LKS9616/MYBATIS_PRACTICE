@@ -4,33 +4,33 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
-public class ListController {
+public class MemberListController {
 
-    private final ListService listService;
+    private final MemberListService memberListService;
     private final PrintResult printResult;
 
-    public ListController () {
-        listService = new ListService();
+    public MemberListController() {
+        memberListService = new MemberListService();
         printResult = new PrintResult();
     }
 
-    public void selectAllEmployee() {
+    public void selectAllMembers() {
 
-        List<EmployeeDTO> employeeList = listService.selectAllEmployee();
+        List<EmployeeDTO> memberList = memberListService.selectAllMembers();
 
-        if(employeeList != null) {
-            printResult.printEmployeeList(employeeList);
+        if(memberList != null) {
+            printResult.printEmployeeList(memberList);
         } else {
             printResult.printErrorMessage("viewList");
         }
 
     }
 
-    public void selectEmployeeById(Map<String, String> parameter) {
+    public void selectMemberById(Map<String, String> parameter) {
 
         String empId = new String(parameter.get("empId"));
 
-        EmployeeDTO emp = listService.selectEmployeeById(String.valueOf(Integer.parseInt(empId)));
+        EmployeeDTO emp = memberListService.selectEmployeeById(String.valueOf(Integer.parseInt(empId)));
 
         if(emp != null) {
             printResult.printEmployee(emp);
@@ -40,11 +40,11 @@ public class ListController {
 
     }
 
-    public void selectEmployeeByName(Map<String, String> parameter) {
+    public void selectMemberByName(Map<String, String> parameter) {
 
         String empName = new String(parameter.get("empName"));
 
-        EmployeeDTO emp = listService.selectEmployeeByName(empName);
+        EmployeeDTO emp = memberListService.selectEmployeeByName(empName);
 
         if(emp != null) {
             printResult.printEmployee(emp);
@@ -53,7 +53,7 @@ public class ListController {
         }
     }
 
-    public void addEmployee(Map<String, String> parameter) {
+    public void addMember(Map<String, String> parameter) {
 
         String empId = parameter.get("empId");
         String empName = parameter.get("empName");
@@ -86,14 +86,14 @@ public class ListController {
         emp.setEntDate(entDate);
         emp.setEntYn(entYn);
 
-        if(listService.addEmployee(emp)) {
+        if(memberListService.addEmployee(emp)) {
             printResult.printSuccessMessage("addList");
         } else {
             printResult.printErrorMessage("addList");
         }
     }
 
-    public void editEmployee(Map<String, String> parameter) {
+    public void editMember(Map<String, String> parameter) {
         String empId = parameter.get("empId");
         String empName = parameter.get("empName");
         String empNo = parameter.get("empNo");
@@ -125,17 +125,17 @@ public class ListController {
         emp.setEntDate(entDate);
         emp.setEntYn(entYn);
 
-        if(listService.editEmployee(emp)) {
+        if(memberListService.editEmployee(emp)) {
             printResult.printSuccessMessage("editList");
         } else {
             printResult.printErrorMessage("editList");
         }
     }
 
-    public void deleteEmployee(Map<String, String> parameter) {
+    public void deleteMember(Map<String, String> parameter) {
         String empId = new String (parameter.get("empId"));
 
-        if(listService.deleteEmployee(empId)) {
+        if(memberListService.deleteEmployee(empId)) {
             printResult.printSuccessMessage("deleteList");
         } else {
             printResult.printErrorMessage("deleteList");

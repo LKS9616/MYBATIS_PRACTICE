@@ -1,4 +1,4 @@
-package com.EmployeeEditor;
+package com.ohgiraffers.employeeEditor;
 
 import java.util.List;
 

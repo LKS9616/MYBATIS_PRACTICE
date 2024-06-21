@@ -1,4 +1,4 @@
-package com.EmployeeEditor;
+package com.ohgiraffers.employeeEditor;
 
 import java.sql.Date;
 import java.util.List;
@@ -28,9 +28,9 @@ public class MemberListController {
 
     public void selectMemberById(Map<String, String> parameter) {
 
-        String empId = new String(parameter.get("empId"));
+        String empId = parameter.get("empId");
 
-        EmployeeDTO emp = memberListService.selectEmployeeById(String.valueOf(Integer.parseInt(empId)));
+        EmployeeDTO emp = memberListService.selectEmployeeById(empId);
 
         if(emp != null) {
             printResult.printEmployee(emp);
@@ -87,9 +87,9 @@ public class MemberListController {
         emp.setEntYn(entYn);
 
         if(memberListService.addEmployee(emp)) {
-            printResult.printSuccessMessage("addList");
+            printResult.printSuccessMessage("addEmp");
         } else {
-            printResult.printErrorMessage("addList");
+            printResult.printErrorMessage("addEmp");
         }
     }
 
@@ -126,19 +126,19 @@ public class MemberListController {
         emp.setEntYn(entYn);
 
         if(memberListService.editEmployee(emp)) {
-            printResult.printSuccessMessage("editList");
+            printResult.printSuccessMessage("editEmp");
         } else {
-            printResult.printErrorMessage("editList");
+            printResult.printErrorMessage("editEmp");
         }
     }
 
     public void deleteMember(Map<String, String> parameter) {
-        String empId = new String (parameter.get("empId"));
+        String empId = parameter.get("empId");
 
         if(memberListService.deleteEmployee(empId)) {
-            printResult.printSuccessMessage("deleteList");
+            printResult.printSuccessMessage("deleteEmp");
         } else {
-            printResult.printErrorMessage("deleteList");
+            printResult.printErrorMessage("deleteEmp");
         }
     }
 }

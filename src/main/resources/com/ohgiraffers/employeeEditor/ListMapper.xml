@@ -2,8 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ohgiraffers.xml.ListMapper">
-    <resultMap id="listResultMap" type="com.EmployeeEditor.EmployeeDTO">
+
+<mapper namespace="com.ohgiraffers.employeeEditor.ListMapper">
+
+    <resultMap id="listResultMap" type="com.ohgiraffers.employeeEditor.EmployeeDTO">
         <result property="empId" column="EMP_ID"/>
         <result property="empName" column="EMP_NAME"/>
         <result property="empNo" column="EMP_NO"/>
@@ -77,7 +79,7 @@
         where emp_name = #{ empName }
     </select>
 
-    <insert id="addEmployee" parameterType="com.EmployeeEditor.EmployeeDTO">
+    <insert id="addEmployee" parameterType="com.ohgiraffers.employeeEditor.EmployeeDTO">
         insert into employee (
         emp_id,
         emp_name,
@@ -111,7 +113,7 @@
         )
     </insert>
 
-    <update id="editEmployee" parameterType="com.EmployeeEditor.EmployeeDTO">
+    <update id="editEmployee" parameterType="com.ohgiraffers.employeeEditor.EmployeeDTO">
         update employee
         set
         emp_id = #{ empId },

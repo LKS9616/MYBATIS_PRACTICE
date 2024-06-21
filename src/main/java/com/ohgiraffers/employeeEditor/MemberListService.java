@@ -1,10 +1,10 @@
-package com.EmployeeEditor;
+package com.ohgiraffers.employeeEditor;
 
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-import static com.EmployeeEditor.Template.getSqlSession;
+import static com.ohgiraffers.employeeEditor.Template.getSqlSession;
 
 public class MemberListService {
 
